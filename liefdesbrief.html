@@ -3,61 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liefdesbrief & Associatief Schrijven</title>
+    <title>Liefdesbrieven Schrijven - Muziek & Schrijf Cursussen</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        header { background: #f8f8f8; padding: 20px; display: flex; align-items: center; justify-content: space-between; }
-        .logo { font-size: 24px; font-weight: bold; color: #d45a2a; }
-        nav { display: flex; gap: 20px; }
-        nav a { text-decoration: none; color: #333; font-weight: bold; }
-        .content { padding: 50px; text-align: center; }
-        .cta-btn { background: #d45a2a; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block; margin-top: 10px; }
-        .cta-btn:hover { background: #c14e24; }
-        footer { text-align: center; padding: 20px; background: #f8f8f8; margin-top: 20px; }
-        .section { text-align: left; max-width: 800px; margin: auto; }
+        /* Reset en basis stijlen */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        /* Header styling */
+        header { 
+            background: linear-gradient(to right, #f8f8f8, #fff5e6);
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo { 
+            font-size: 26px;
+            font-weight: bold;
+            color: #d45a2a;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .logo:hover {
+            transform: scale(1.02);
+        }
+        
+        nav { 
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a { 
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 17px;
+            position: relative;
+            padding: 5px 2px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #d45a2a;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #d45a2a;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Cursus pagina styling */
+        .course-header {
+            background: linear-gradient(135deg, #fffae6 0%, #fff5e6 100%);
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .course-header h1 {
+            font-size: 2.8rem;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto 15px;
+        }
+        
+        .course-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .course-details {
+            flex: 1 1 500px;
+        }
+        
+        .course-details p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            color: #444;
+            line-height: 1.7;
+        }
+        
+        .course-image {
+            flex: 0 1 300px;
+            align-self: flex-start;
+            position: sticky;
+            top: 120px;
+        }
+        
+        .course-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .course-image .placeholder {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: linear-gradient(45deg, rgba(212, 90, 42, 0.1), rgba(255, 228, 196, 0.4));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 72px;
+            color: rgba(212, 90, 42, 0.5);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .info-section {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .info-section h3 {
+            font-size: 20px;
+            color: #d45a2a;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .info-section h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 16px;
+            background-color: #d45a2a;
+            border-radius: 3px;
+        }
+        
+        .info-section p {
+            margin-bottom: 10px;
+        }
+        
+        .pricing-table {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .pricing-table h3 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .price-row:last-child {
+            border-bottom: none;
+        }
+        
+        .cta-container {
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+        
+        .cta-btn {
+            background: #d45a2a;
+            color: white;
+            padding: 14px 35px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            border-radius: 30px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(212, 90, 42, 0.2);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        .cta-btn:hover {
+            background: #c14e24;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(212, 90, 42, 0.25);
+        }
+        
+        /* Features list */
+        .features-list {
+            margin: 25px 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .features-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+        }
+        
+        .features-list li:before {
+            content: '♥';
+            position: absolute;
+            left: 0;
+            color: #d45a2a;
+            font-size: 18px;
+        }
+        
+        /* Footer styling */
+        footer { 
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(to right, #f8f8f8, #fff5e6);
+            border-top: 1px solid #eee;
+            margin-top: 50px;
+        }
+        
+        footer p {
+            color: #666;
+            font-size: 15px;
+        }
+        
+        /* Responsiviteit */
+        @media (max-width: 900px) {
+            .course-container {
+                flex-direction: column;
+            }
+            
+            .course-image {
+                position: relative;
+                top: 0;
+                order: -1;
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .course-header h1 {
+                font-size: 2.2rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Muziek & Schrijf Cursussen</a></div>
+        <div class="logo"><a href="index.html">Muziek & Schrijf Cursussen</a></div>
         <nav>
             <a href="index.html">Home</a>
-            <a href="cursussen.html">Alle cursussen</a>
+            <a href="muziekcursussen.html">Muziek</a>
+            <a href="schrijfcurssusen.html">Schrijven</a>
+            <a href="overons.html">Over ons</a>
         </nav>
     </header>
     
-    <div class="content">
+    <section class="course-header">
         <h1>Liefdesbrieven Schrijven</h1>
+    </section>
+    
+    <div class="course-container">
+        <div class="course-details">
+            <p>Wil jij leren om iemand echt te vlijen? Doe mee aan de workshop liefdesbrieven schrijven! Het hoeft geen romantisch verlangen te zijn dat je drijft; het kan ook een ode zijn aan een goede docent, of zelfs aan iets abstracts, zoals de stad waar je vandaan komt. Of natuurlijk wel gewoon een ouderwetse liefdesverklaring, waarin je jouw geliefde of crush perfect duidelijk maakt waarom je zo gek op hem of haar bent. Leuk voor singles én mensen met een relatie.</p>
+
+            <p>Delen tijdens de workshop mag, maar als je je brief liever privé houdt is dat geen enkel probleem.</p>
+
+            <p>Dit is een perfect vriendinnenuitje, maar ook om te vormen tot bedrijfsuitje, bijvoorbeeld wanneer iedereen een liefdesbrief schrijft aan het bedrijf waar je werkt, of een ode aan die leuke collega waarvan afscheid genomen wordt. Deze workshop kan, kortom, in overleg worden aangepast aan jouw behoeften.</p>
+
+            <p>Een van de technieken die we gaan gebruiken, is associatief schrijven. Voor 20 minuten schrijf je alles op wat er in je opkomt als je aan jouw onderwerp denkt, om vervolgens in een korte pauze op de door jou geschreven woorden te reflecteren. Zo kom je in korte tijd tot de kern van je onderwerp.</p>
+
+            <p>Vragen die centraal staan zijn: wat is een uniek compliment? Hoe beschrijf je je gevoelens op een originele wijze, zodat de ander écht begrijpt wat er in jou omgaat?</p>
+            
+            <ul class="features-list">
+                <li>Leer een originele liefdesbrief schrijven die opvalt</li>
+                <li>Ontdek de kracht van associatief schrijven</li>
+                <li>Perfect voor vriendinnenuitjes of bedrijfsteambuilding</li>
+                <li>Persoonlijke begeleiding tijdens het schrijfproces</li>
+            </ul>
+           
+            <div class="info-section">
+                <h3>Duur</h3>
+                <p>3 uur</p>
+            </div>
+            
+            <div class="info-section">
+                <h3>Locatie</h3>
+                <p>In ons atelier in Amsterdam tot 20 man, of op een zelfgekozen locatie.</p>
+            </div>
+            <div class="info-section">
+                <h3>Benodigdheden</h3>
+                <p>Ik neem briefpapier, enveloppen, oost-indische inkt, kroontjespennen en andere leuke toevoegingen mee, maar als je zelf nog mooi briefpapier hebt liggen, zou ik het zeker meebrengen!</p>
+            </div>
+            
+            <div class="info-section">
+                <h3>Kosten</h3>
+                <div class="pricing-table">
+                    <div class="price-row">
+                        <span>1-10 personen</span>
+                        <span>€500</span>
+                    </div>
+                    <div class="price-row">
+                        <span>11-20 personen</span>
+                        <span>€600</span>
+                    </div>
+                    <div class="price-row">
+                        <span>21 of meer personen</span>
+                        <span>Op aanvraag</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h3>Reiskosten (retour vanuit Amsterdam)</h3>
+                <div class="pricing-table">
+                    <div class="price-row">
+                        <span>10-100 km</span>
+                        <span>€50</span>
+                    </div>
+                    <div class="price-row">
+                        <span>100-150 km</span>
+                        <span>€100</span>
+                    </div>
+                    <div class="price-row">
+                        <span>150+ km</span>
+                        <span>Op aanvraag</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-container">
+                <a href="inschrijven.html" class="cta-btn">Inschrijven</a>
+            </div>
+        </div>
         
-        <p>Wil jij leren om iemand echt te vlijen? Doe mee aan de workshop liefdesbrieven schrijven! Het hoeft geen romantisch verlangen te zijn dat je drijft; het kan ook een ode zijn aan een goede docent, of zelfs aan iets abstracts, zoals de stad waar je vandaan komt. Of natuurlijk wel gewoon een ouderwetse liefdesverklaring, waarin je jouw geliefde of crush perfect duidelijk maakt waarom je zo gek op hem of haar bent. Leuk voor singles én mensen met een relatie.</p>
-
-        <p>Delen tijdens de workshop mag, maar als je je brief liever privé houdt is dat geen enkel probleem.</p>
-
-        <p>Dit is een perfect vriendinnenuitje, maar ook om te vormen tot bedrijfsuitje, bijvoorbeeld wanneer iedereen een liefdesbrief schrijft aan het bedrijf waar je werkt, of een ode aan die leuke collega waarvan afscheid genomen wordt. Deze workshop kan, kortom, in overleg worden aangepast aan jouw behoeften.</p>
-
-        <p>Een van de technieken die we gaan gebruiken, is associatief schrijven. Voor 20 minuten schrijf je alles op wat er in je opkomt als je aan jouw onderwerp denkt, om vervolgens in een korte pauze op de door jou geschreven woorden te reflecteren. Zo kom je in korte tijd tot de kern van je onderwerp.</p>
-
-        <p>Vragen die centraal staan zijn: wat is een uniek compliment? Hoe beschrijf je je gevoelens op een originele wijze, zodat de ander écht begrijpt wat er in jou omgaat?</p>
-
-        <h3>Benodigdheden:</h3>
-        <p>Ik neem briefpapier, enveloppen, oost-indische inkt, kroontjespennen en andere leuke toevoegingen mee, maar als je zelf nog mooi briefpapier hebt liggen, zou ik het zeker meebrengen!</p>
-
-        <h3>Kosten:</h3>
-        <p>1-10 personen: 500 euro</p>
-        <p>11-20 personen: 600 euro</p>
-        <p>21 of meer: op aanvraag</p>
-
-        <h3>Reiskosten (retour vanuit Utrecht)</h3>
-        <p>10-100 km: 50 Euro</p>
-        <p>100-150 km: 100 Euro</p>
-        <p>150+ km: op aanvraag</p>
-
-        <a href="inschrijven.html" class="cta-btn">Inschrijven</a>
-        <img src="images/liefdesbrief.jpg" alt="Liefdesbrief Schrijven" style="max-width: 100%; height: auto; display: block; margin: 20px auto;">
+        <div class="course-image">
+            <!-- Als je de originele afbeelding wilt gebruiken: -->
+            <img src="images/liefdesbrief.jpg" alt="Liefdesbrief Schrijven">
+            
+            <!-- Als je de afbeelding niet hebt, gebruik je deze placeholder in plaats van de img-tag: -->
+            <!-- <div class="placeholder">💌</div> -->
+        </div>
     </div>
     
     <footer>
-        &copy; 2025 Muziek & Schrijf Cursussen | Alle rechten voorbehouden
+        <p>&copy; 2025 Muziek & Schrijf Cursussen | Alle rechten voorbehouden</p>
     </footer>
 </body>
 </html>

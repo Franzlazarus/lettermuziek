@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Een mythe schrijven - Muziek & Schrijf Cursussen</title>
+    <title>Muzikale Improvisatie - Muziek & Schrijf Cursussen</title>
     <style>
         /* Reset en basis stijlen */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -229,13 +229,13 @@
         }
         
         .features-list li:before {
-            content: '⚡';
+            content: '🎷';
             position: absolute;
             left: 0;
             font-size: 18px;
         }
         
-        /* Quote block */
+        /* Quote styling */
         .quote-block {
             background: linear-gradient(to right, #fff8f0, #fff);
             border-left: 4px solid #d45a2a;
@@ -268,31 +268,133 @@
             margin-top: 10px;
         }
         
-        /* Myth examples */
-        .myth-examples {
-            display: flex;
+        /* Skills grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
             margin: 30px 0;
-            flex-wrap: wrap;
         }
         
-        .myth-example {
-            flex: 1 1 200px;
-            background: #f8f8f8;
+        .skill-card {
+            background: #f9f9f9;
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
         
-        .myth-example h4 {
-            color: #d45a2a;
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .skill-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .skill-card h3 {
             margin-bottom: 10px;
+            color: #444;
             font-size: 18px;
         }
         
-        .myth-example p {
+        .skill-card p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 0;
+        }
+        
+        /* Exercise examples */
+        .exercise-section {
+            margin: 35px 0;
+        }
+        
+        .exercise-section h3 {
+            color: #444;
+            margin-bottom: 20px;
+            font-size: 22px;
+            text-align: center;
+        }
+        
+        .exercises {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .exercise-item {
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            padding-left: 60px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .exercise-item:before {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+        }
+        
+        .exercise-item:nth-child(1):before {
+            content: '🎹';
+        }
+        
+        .exercise-item:nth-child(2):before {
+            content: '🎸';
+        }
+        
+        .exercise-item:nth-child(3):before {
+            content: '🥁';
+        }
+        
+        .exercise-item h4 {
+            color: #d45a2a;
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+        
+        .exercise-item p {
+            margin-bottom: 0;
             font-size: 15px;
             color: #555;
+        }
+        
+        /* Target audience */
+        .audience-section {
+            background: #fffaf0;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .audience-section h3 {
+            color: #d45a2a;
+            margin-bottom: 15px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        .audience-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        
+        .audience-item {
+            background: white;
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
         
         /* Footer styling */
@@ -321,6 +423,10 @@
                 order: -1;
                 margin-bottom: 20px;
             }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         @media (max-width: 600px) {
@@ -331,6 +437,14 @@
             
             .course-header h1 {
                 font-size: 2.2rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .audience-item {
+                width: 100%;
             }
         }
     </style>
@@ -347,41 +461,86 @@
     </header>
     
     <section class="course-header">
-        <h1>Een mythe schrijven</h1>
+        <h1>Muzikale Improvisatie</h1>
     </section>
     
     <div class="course-container">
         <div class="course-details">
-            <p>Bij het woord mythe denken de meeste mensen direct aan de oude Grieken. Maar mythologie is veel breder dan dat. Denk bijvoorbeeld aan 'The Matrix', een mythe over de moderne maatschappij, waar technologie een grote rol in speelt. Of wat dacht je van levende legendes, zoals Wim Hoff, die bijna bovenmenselijke prestaties kan leveren?</p>
+            <p>Ontwikkel je improvisatievaardigheden en leer hoe je spontaan muziek kunt creëren. Deze praktische cursus is geschikt voor muzikanten van alle niveaus en richt zich op het ontwikkelen van creatieve vrijheid, muzikaal vertrouwen en de vaardigheid om in het moment te spelen.</p>
             
             <div class="quote-block">
-                <p>Mythes zijn de verhalen die ons definiëren, ze geven betekenis aan onze wereld en brengen ons samen rond gedeelde symbolen en waarden.</p>
-                <div class="author">Joseph Campbell</div>
+                <p>Improvisatie is niet de uitdrukking van toeval, maar van wat we te zeggen hebben.</p>
+                <div class="author">Miles Davis</div>
             </div>
             
-            <p>Tijdens deze workshop gaan we op zoek naar onze eigen helden en symbolen. Hoe creëer je een ongenaakbare held? Wat ís een held? We bespreken deze vragen aan de hand van enkele voorbeelden, waarna we met zijn allen gaan brainstormen over de mythologie van jouw bedrijf, vriendengroep of familie.</p>
-            
-            <p>Vervolgens worden de deelnemers ingedeeld in kleine groepjes en houden we een wedstrijd. Wie kan de meest overtuigende mythe bedenken?</p>
+            <p>Tijdens deze workshop verken je verschillende technieken en benaderingen van improvisatie, van jazz en blues tot vrije improvisatie. Je leert om buiten je comfortzone te stappen, te reageren op muzikale impulsen en je eigen muzikale stem te vinden. Met praktische oefeningen en directe feedback help je jezelf en elkaar om te groeien als improvisator.</p>
             
             <ul class="features-list">
-                <li>Ontwikkel diep inzicht in de structuur van mythes</li>
-                <li>Creëer krachtige verhalen rond jouw organisatie of groep</li>
-                <li>Leer de universele elementen van heldhaftige personages</li>
-                <li>Perfect voor teambuilding en merkidentiteit</li>
+                <li>Ontwikkel je vermogen om spontaan te reageren op muzikale ideeën</li>
+                <li>Leer improviseren binnen verschillende muzikale structuren</li>
+                <li>Vergroot je muzikaal vocabulaire en expressiemogelijkheden</li>
+                <li>Bouw vertrouwen in je eigen muzikale intuïtie</li>
+                <li>Ervaar de vreugde van creatieve vrijheid in het moment</li>
             </ul>
             
-            <div class="myth-examples">
-                <div class="myth-example">
-                    <h4>Bedrijfsmythes</h4>
-                    <p>Ontdek hoe merken als Apple en Nike gebruik maken van mythische verhaalstructuren om hun identiteit te versterken.</p>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎵</div>
+                    <h3>Muzikaal gehoor</h3>
+                    <p>Ontwikkel een scherper gehoor en leer anticiperen op muzikale wendingen</p>
                 </div>
-                <div class="myth-example">
-                    <h4>Moderne helden</h4>
-                    <p>Analyse van hedendaagse "helden" zoals pioniers, activisten en inspirerende leiders.</p>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">🧩</div>
+                    <h3>Muziektheorie</h3>
+                    <p>Begrijp toonladders, akkoordprogressies en harmonische relaties</p>
                 </div>
-                <div class="myth-example">
-                    <h4>Persoonlijke legendes</h4>
-                    <p>Leer hoe je je eigen verhaal kunt vormgeven als een krachtige persoonlijke mythe.</p>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">🔄</div>
+                    <h3>Flexibiliteit</h3>
+                    <p>Leer snel te schakelen tussen verschillende muzikale ideeën</p>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">👥</div>
+                    <h3>Samenspel</h3>
+                    <p>Verfijn je communicatie en interactie met andere muzikanten</p>
+                </div>
+            </div>
+            
+            <div class="exercise-section">
+                <h3>Voorbeelden van oefeningen</h3>
+                
+                <div class="exercises">
+                    <div class="exercise-item">
+                        <h4>Call and Response</h4>
+                        <p>Een klassieke improvisatie-oefening waarbij één muzikant een muzikaal idee speelt en een ander daarop reageert, wat leidt tot een muzikale conversatie.</p>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <h4>Beperkte Notenkeuze</h4>
+                        <p>Leer expressief te zijn met beperkte middelen door te improviseren met slechts 3-5 noten, waardoor je meer aandacht besteedt aan ritme en frasering.</p>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <h4>Improvisatie op Emoties</h4>
+                        <p>Vertaal verschillende emoties of sferen naar muziek zonder vooraf vastgelegde structuur, wat je helpt om intentie in je improvisaties te brengen.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="audience-section">
+                <h3>Voor wie is deze cursus?</h3>
+                <div class="audience-list">
+                    <div class="audience-item">Muziekliefhebbers zonder ervaring</div>
+                    <div class="audience-item">Hobbyisten die willen starten met muziek</div>
+                    <div class="audience-item">Mensen die bang zijn om te improviseren</div>
+                    <div class="audience-item">Zelflerende muzikanten</div>
+                    <div class="audience-item">Instrumentalisten die nieuw zijn in improvisatie</div>
+                    <div class="audience-item">Mensen die in een band willen spelen maar onzeker zijn</div>
+                    <div class="audience-item">Zangers die willen leren improviseren</div>
+                    <div class="audience-item">Ouders die muziek met hun kinderen willen ontdekken</div>
                 </div>
             </div>
             
@@ -391,24 +550,29 @@
             </div>
             
             <div class="info-section">
+                <h3>Locatie</h3>
+                <p>In onze studio in Amsterdam of op locatie.</p>
+            </div>
+            
+            <div class="info-section">
                 <h3>Benodigdheden</h3>
-                <p>Pen en papier verzorg ik, maar als je liever typt, moet je je eigen laptop of tablet meenemen.</p>
+                <p>Neem je eigen instrument mee. Als je een pianist bent, is er een piano of keyboard aanwezig in onze studio. Basis percussie-instrumenten zijn ook beschikbaar.</p>
             </div>
             
             <div class="info-section">
                 <h3>Kosten</h3>
                 <div class="pricing-table">
                     <div class="price-row">
-                        <span>1-10 deelnemers</span>
-                        <span>€600</span>
+                        <span>1-6 deelnemers</span>
+                        <span>€65 per persoon</span>
                     </div>
                     <div class="price-row">
-                        <span>11-25 deelnemers</span>
-                        <span>€700</span>
+                        <span>7-12 deelnemers</span>
+                        <span>€55 per persoon</span>
                     </div>
                     <div class="price-row">
-                        <span>26 of meer deelnemers</span>
-                        <span>Op aanvraag</span>
+                        <span>13+ deelnemers</span>
+                        <span>€45 per persoon</span>
                     </div>
                 </div>
             </div>
@@ -437,11 +601,10 @@
         </div>
         
         <div class="course-image">
-            <!-- Als je de originele afbeelding wilt gebruiken: -->
-            <img src="images/mytheschrijven.jpg" alt="Mythe Schrijven">
+            <!-- Als er een afbeelding beschikbaar is, gebruik dan deze code: -->
+            <img src="images/muziekimprov.jpg" alt="Muziek Improvisatie"> 
             
-            <!-- Als je de afbeelding niet hebt, gebruik je deze placeholder in plaats van de img-tag: -->
-            <!-- <div class="placeholder">📖</div> -->
+
         </div>
     </div>
     

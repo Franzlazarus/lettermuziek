@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Over Ons - Muziek & Schrijf Cursussen</title>
+    <style>
+        /* Reset en basis stijlen */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        /* Header styling */
+        header { 
+            background: linear-gradient(to right, #f8f8f8, #fff5e6);
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo { 
+            font-size: 26px;
+            font-weight: bold;
+            color: #d45a2a;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .logo:hover {
+            transform: scale(1.02);
+        }
+        
+        nav { 
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a { 
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 17px;
+            position: relative;
+            padding: 5px 2px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #d45a2a;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #d45a2a;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Page header */
+        .page-header {
+            background: linear-gradient(135deg, #fffae6 0%, #fff5e6 100%);
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.8rem;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto 15px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Main content */
+        .main-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        /* About us intro */
+        .about-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .about-intro h2 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-intro h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #d45a2a;
+            border-radius: 2px;
+        }
+        
+        .about-intro p {
+            font-size: 17px;
+            color: #555;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+        
+        /* Team section */
+        .team-section {
+            margin-top: 50px;
+        }
+        
+        .team-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .team-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #d45a2a;
+            border-radius: 2px;
+        }
+        
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: center;
+        }
+        
+        .team-member {
+            flex: 1 1 450px;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .member-image {
+            height: 300px;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        
+        .member-image-placeholder {
+            height: 300px;
+            background: linear-gradient(45deg, rgba(212, 90, 42, 0.1), rgba(255, 228, 196, 0.4));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: rgba(212, 90, 42, 0.5);
+        }
+        
+        .member-info {
+            padding: 30px;
+        }
+        
+        .member-name {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .member-title {
+            font-size: 18px;
+            color: #d45a2a;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .member-bio {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        
+        .member-highlights {
+            margin-top: 20px;
+        }
+        
+        .member-highlights h4 {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .member-highlights h4:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 16px;
+            background-color: #d45a2a;
+            border-radius: 3px;
+        }
+        
+        .highlights-list {
+            list-style-type: none;
+        }
+        
+        .highlights-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .highlights-list li:before {
+            content: '•';
+            color: #d45a2a;
+            font-size: 20px;
+            position: absolute;
+            left: 5px;
+            top: -2px;
+        }
+        
+        .book-promo {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 25px;
+            border-left: 4px solid #d45a2a;
+        }
+        
+        .book-promo h5 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .book-promo p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+        
+        .book-link {
+            display: inline-block;
+            background: #d45a2a;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .book-link:hover {
+            background: #c14e24;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .upcoming-events {
+            margin-top: 20px;
+        }
+        
+        .upcoming-events h4 {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .upcoming-events h4:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 16px;
+            background-color: #d45a2a;
+            border-radius: 3px;
+        }
+        
+        .events-list {
+            list-style-type: none;
+        }
+        
+        .events-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+        
+        .events-list li:before {
+            content: '📅';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        /* Social icons */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: #d45a2a;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Mission and vision */
+        .mission-section {
+            margin: 80px 0;
+            padding: 60px 30px;
+            background: linear-gradient(135deg, #fffae6 0%, #fff5e6 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .mission-section h2 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .mission-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #d45a2a;
+            border-radius: 2px;
+        }
+        
+        .mission-values {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .value-item {
+            flex: 1 1 300px;
+            max-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .value-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #d45a2a;
+        }
+        
+        .value-item h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .value-item p {
+            color: #555;
+            font-size: 15px;
+        }
+        
+        /* Footer styling */
+        footer { 
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(to right, #f8f8f8, #fff5e6);
+            border-top: 1px solid #eee;
+            margin-top: 50px;
+        }
+        
+        footer p {
+            color: #666;
+            font-size: 15px;
+        }
+        
+        /* Responsiviteit */
+        @media (max-width: 768px) {
+            .team-member {
+                flex: 1 1 100%;
+            }
+            
+            .mission-values {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .value-item {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-intro h2, 
+            .team-section h2,
+            .mission-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html">Muziek & Schrijf Cursussen</a></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="muziekcursussen.html">Muziek</a>
+            <a href="schrijfcurssusen.html">Schrijven</a>
+            <a href="#" class="active">Over ons</a>
+        </nav>
+    </header>
+    
+    <section class="page-header">
+        <h1>Over Ons</h1>
+        <p>Maak kennis met de gepassioneerde docenten achter Muziek & Schrijf Cursussen</p>
+    </section>
+    
+    <div class="main-content">
+        <div class="about-intro">
+            <h2>Onze Missie</h2>
+            <p>Bij Muziek & Schrijf Cursussen geloven we dat creativiteit een krachtig middel is voor persoonlijke ontwikkeling en verbinding tussen mensen. Onze workshops zijn ontworpen om deelnemers te inspireren, uit te dagen en te helpen hun creatieve potentieel te ontdekken in een ondersteunende omgeving. Of het nu gaat om muzikale expressie of het geschreven woord, wij helpen je om je vaardigheden te ontwikkelen en je eigen creatieve stem te vinden.</p>
+        </div>
+        
+        <div class="team-section">
+            <h2>Onze Docenten</h2>
+            
+            <div class="team-members">
+                <div class="team-member">
+                    <!-- Als je een afbeelding hebt, gebruik deze code: -->
+                    <!-- <div class="member-image" style="background-image: url('images/mette.jpg');"></div> -->
+                    
+                    <!-- Als je geen afbeelding hebt, gebruik deze placeholder: -->
+                    <div class="member-image-placeholder">📚</div>
+                    
+                    <div class="member-info">
+                        <h3 class="member-name">Mette</h3>
+                        <p class="member-title">Schrijver & Kunstenaar</p>
+                        
+                        <div class="member-bio">
+                            <p>Als schrijver en kunstenaar werk ik vanuit mijn fascinatie voor taal en beeld. Mijn werk onderzoekt de grens tussen het alledaagse en het buitengewone. Ik deel mijn kennis en ervaring graag met cursisten, waarbij ik focus op het ontwikkelen van een authentieke schrijfstijl.</p>
+                            
+                            <p>Door mijn praktijkervaring als gepubliceerd auteur en mijn achtergrond in de beeldende kunst, benader ik schrijven als een creatief proces dat verder gaat dan alleen woorden op papier zetten. In mijn lessen combineer ik technische vaardigheden met creatieve vrijheid.</p>
+                        </div>
+                        
+                        <div class="book-promo">
+                            <h5>Mimosa (2023) - Debuutroman</h5>
+                            <p>Een verhaal over herinneringen, identiteit en de kleuren van het bestaan.</p>
+                            <a href="mettemaria.nl" class="book-link">Meer over Mimosa</a>
+                        </div>
+                        
+                        <div class="upcoming-events">
+                            <h4>Komende evenementen</h4>
+                            <ul class="events-list">
+                                <li>15 maart - Lezing bij Boekhandel Athenaeum, Amsterdam</li>
+                                <li>2 april - Kunstexpositie, Galerie Noord, Rotterdam</li>
+                                <li>18 mei - Literair Festival, Utrecht</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="mettevandijk@yahoo.com" class="social-link">✉️</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <!-- Als je een afbeelding hebt, gebruik deze code: -->
+                    <!-- <div class="member-image" style="background-image: url('images/brant.jpg');"></div> -->
+                    
+                    <!-- Als je geen afbeelding hebt, gebruik deze placeholder: -->
+                    <div class="member-image-placeholder">🎵</div>
+                    
+                    <div class="member-info">
+                        <h3 class="member-name">Brant Peije Teunis</h3>
+                        <p class="member-title">Componist & Muziekdocent</p>
+                        
+                        <div class="member-bio">
+                            <p>Als componist ben ik gespecialiseerd in elektronische muziek, met een Bachelor of Music van de HKU Muziek en Technologie. Mijn werk omvat composities voor dans, film, koor en experimenten met historische instrumenten, wat mij een brede muzikale basis geeft om van te onderwijzen.</p>
+                            
+                            <p>Als leider van de dynamische Brant Peije Band, waar ik werk met een wisselende groep muzikanten, breng ik een unieke energie en experimenteerdrift mee naar mijn lessen. Ik help cursisten om hun eigen muzikale stem te vinden en techniek te combineren met expressie.</p>
+                        </div>
+                        
+                        <div class="member-highlights">
+                            <h4>Carrière hoogtepunten</h4>
+                            <ul class="highlights-list">
+                                <li>Documentair Componeren - Carillon Project (2024-heden)</li>
+                                <li>Compositie voor NEON Koor met orgel en saxofoon (2024)</li>
+                                <li>Soundtrack voor KIRAC Episode 24 "Under a Sinking Sun" (2023)</li>
+                                <li>Winnaar publieksprijs Mittelfest met "Nymphs" (2022)</li>
+                                <li>Curator muziekprogramma Riekerhaven, Amsterdam (2019-2023)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="upcoming-events">
+                            <h4>Komende optredens</h4>
+                            <ul class="events-list">
+                                <li>27 februari - Skek, Amsterdam (Tall Grass)</li>
+                                <li>28 februari - De Flux, Zaandam (Tall Grass)</li>
+                                <li>7 maart - De Richel, Amsterdam (Tall Grass)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="bp.teunis@gmail.com" class="social-link">✉️</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mission-section">
+            <h2>Onze Waarden</h2>
+            
+            <div class="mission-values">
+                <div class="value-item">
+                    <div class="value-icon">💡</div>
+                    <h3>Creativiteit</h3>
+                    <p>We geloven in het stimuleren van creatieve expressie en origineel denken. Onze workshops zijn ontworpen om verbeelding en innovatie aan te moedigen.</p>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-icon">🤝</div>
+                    <h3>Inclusiviteit</h3>
+                    <p>Onze cursussen zijn toegankelijk voor iedereen, ongeacht ervaring of achtergrond. We creëren een veilige ruimte waar iedereen zich welkom voelt.</p>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-icon">🌱</div>
+                    <h3>Groei</h3>
+                    <p>We ondersteunen onze cursisten in hun persoonlijke en creatieve ontwikkeling, met workshops die uitdagend, verrijkend en inspirerend zijn.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Muziek & Schrijf Cursussen | Alle rechten voorbehouden</p>
+    </footer>
+</body>
+</html>

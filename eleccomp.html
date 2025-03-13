@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speech Schrijven - Muziek & Schrijf Cursussen</title>
+    <title>Elektronische Muziekcompositie - Muziek & Schrijf Cursussen</title>
     <style>
         /* Reset en basis stijlen */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -229,54 +229,105 @@
         }
         
         .features-list li:before {
-            content: '🎤';
+            content: '🎛️';
             position: absolute;
             left: 0;
             font-size: 18px;
         }
         
-        /* Timeline */
-        .timeline {
+        /* Software tools grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
             margin: 30px 0;
-            padding: 0;
-            position: relative;
         }
         
-        .timeline:before {
-            content: '';
-            position: absolute;
-            left: 10px;
-            top: 5px;
-            height: calc(100% - 10px);
-            width: 2px;
-            background: rgba(212, 90, 42, 0.3);
+        .tool-card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
         
-        .timeline-item {
-            position: relative;
-            padding-left: 40px;
-            margin-bottom: 20px;
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
         }
         
-        .timeline-item:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 5px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #d45a2a;
-        }
-        
-        .timeline-item h4 {
-            margin-bottom: 8px;
-            color: #444;
-        }
-        
-        .timeline-item p {
+        .tool-icon {
+            font-size: 36px;
             margin-bottom: 10px;
+        }
+        
+        .tool-name {
+            font-weight: 600;
+            color: #444;
+            font-size: 15px;
+        }
+        
+        /* Topic boxes */
+        .topics-container {
+            margin: 30px 0;
+        }
+        
+        .topic-box {
+            background: linear-gradient(to right, #fff8f0, #fff);
+            border-left: 4px solid #d45a2a;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .topic-box h3 {
+            color: #444;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .topic-box p {
             font-size: 16px;
+            color: #555;
+            margin-bottom: 0;
+        }
+        
+        /* Teacher info section */
+        .teacher-info {
+            background: #f9f9f9;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .teacher-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d45a2a, #ff9966);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            flex-shrink: 0;
+        }
+        
+        .teacher-bio h3 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .teacher-bio p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 0;
         }
         
         /* Footer styling */
@@ -305,6 +356,15 @@
                 order: -1;
                 margin-bottom: 20px;
             }
+            
+            .teacher-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .teacher-avatar {
+                margin: 0 auto;
+            }
         }
         
         @media (max-width: 600px) {
@@ -315,6 +375,10 @@
             
             .course-header h1 {
                 font-size: 2.2rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -331,74 +395,116 @@
     </header>
     
     <section class="course-header">
-        <h1>Speech schrijven</h1>
+        <h1>Elektronische Muziekcompositie</h1>
     </section>
     
     <div class="course-container">
         <div class="course-details">
-            <p>Bereiden jij en je vrienden je voor op de bruiloft van een goede vriend of vriendin? Gaan jullie binnenkort afstuderen? Of hebben jullie gewoon zin om met woorden en stemgebruik te experimenteren?</p>
+            <p>Verken de wereld van elektronische muziek en leer hoe je moderne composities maakt met digitale tools. In deze cursus, gegeven door onze expert in elektronische muziek, maak je kennis met de fundamenten van digitale geluidssynthese, sequencing, sampling en productietechnieken.</p>
             
-            <p>Tijdens deze workshop schrijft iedere deelnemer een speech over een zelfgekozen onderwerp. Hierbij is er aandacht voor opbouw en overtuigingskracht. Welke stijlmiddelen kun je gebruiken om je pathos kracht bij te zetten? Hoe geef je iemand een gericht en origineel compliment?</p>
+            <p>Of je nu een absolute beginner bent of al ervaring hebt met muziek maken, deze workshop biedt je de kennis en vaardigheden om je eigen elektronische muziek te componeren. Je leert werken met professionele software en ontdekt technieken die door hedendaagse producenten worden gebruikt.</p>
             
             <ul class="features-list">
-                <li>Leer de kunst van overtuigende en meeslepende speeches</li>
-                <li>Krijg inzicht in klassieke retorica en moderne technieken</li>
-                <li>Ontvang persoonlijke feedback op je tekst en presentatie</li>
-                <li>Perfect voor bruiloften, afstudeerceremonie of zakelijke presentaties</li>
+                <li>Leer de basis van digitale audioproductie en elektronische compositie</li>
+                <li>Ontdek de mogelijkheden van verschillende synthesizertypes</li>
+                <li>Experimenteer met sampletechnieken en effectprocessing</li>
+                <li>Creëer je eigen unieke klanken en muzikale structuren</li>
+                <li>Krijg inzicht in arrangement en mixage voor elektronische muziek</li>
             </ul>
             
-            <p>De workshop begint met ongeveer twintig minuten les, waarin een bijzondere speech uit de geschiedenis wordt besproken. Vervolgens gaan de cursisten zelf aan de slag. Iedereen schrijft binnen een halfuur een eerste concept. Daarna gaan we die concepten in tweetallen bespreken en feedback geven, zodat jullie een volgende draft kunnen schrijven. Ondertussen loop ik rond om mee te lezen en tips te geven.</p>
+            <div class="topics-container">
+                <div class="topic-box">
+                    <h3>Geluidssynthese</h3>
+                    <p>Ontdek hoe je klanken creëert met verschillende synthesetechnieken zoals subtractieve, FM en wavetable synthese. Leer hoe je een synthesizer programmeert om unieke geluiden te maken.</p>
+                </div>
+                
+                <div class="topic-box">
+                    <h3>Beat Construction</h3>
+                    <p>Leer ritmes opbouwen met drumcomputers en samplers. Experimenteer met groove, swing en polyritmiek om dynamische beats te maken die de basis vormen van je compositie.</p>
+                </div>
+                
+                <div class="topic-box">
+                    <h3>Arrangement & Structuur</h3>
+                    <p>Ontdek hoe je een complete track opbouwt met intro's, coupletten, refreinen en breaks. Leer spanningsbogen creëren en emotie overbrengen in je muziek.</p>
+                </div>
+                
+                <div class="topic-box">
+                    <h3>Mixing & Effecten</h3>
+                    <p>Krijg inzicht in de basisprincipes van mixage, EQ, compressie en effectprocessing. Leer hoe je je tracks professioneel laat klinken met ruimtelijke effecten en dynamische bewerking.</p>
+                </div>
+            </div>
             
-            <p>Tijdens het laatste halfuur mag iedereen 1 minuut van zijn speech voordragen aan de groep.</p>
+            <h3 style="color:#444; margin-bottom:15px;">Software & Tools die we behandelen</h3>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🎚️</div>
+                    <div class="tool-name">Ableton Live</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🎹</div>
+                    <div class="tool-name">Logic Pro</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🎛️</div>
+                    <div class="tool-name">FL Studio</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🎧</div>
+                    <div class="tool-name">Serum</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🔊</div>
+                    <div class="tool-name">Massive</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🎵</div>
+                    <div class="tool-name">Kontakt</div>
+                </div>
+            </div>
             
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>Introductie (20 min)</h4>
-                    <p>Bespreking van een historische toespraak en analyse van stijlmiddelen</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>Eerste concept (30 min)</h4>
-                    <p>Individueel schrijven van een eerste versie van je speech</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>Feedback ronde (30 min)</h4>
-                    <p>In tweetallen feedback geven en ontvangen</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>Herschrijven (30 min)</h4>
-                    <p>Verwerken van de feedback en verbeteren van je speech</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>Presentaties (30 min)</h4>
-                    <p>Iedereen presenteert een minuut van zijn/haar speech</p>
+            <div class="teacher-info">
+                <div class="teacher-avatar">🎧</div>
+                <div class="teacher-bio">
+                    <h3>Brant Peije Teunis</h3>
+                    <p>Deze cursus wordt gegeven door Brant Peije Teunis, componist met een Bachelor of Music van de HKU, gespecialiseerd in Composition for Electronic Music. Met jarenlange ervaring in elektronische muziekproductie en als leider van het dynamische Brant Peije Band project, brengt hij een unieke mix van klassieke compositiekennis en experimentele moderne technieken.</p>
                 </div>
             </div>
             
             <div class="info-section">
                 <h3>Duur</h3>
-                <p>2-3 uur</p>
+                <p>4 uur</p>
+            </div>
+            
+            <div class="info-section">
+                <h3>Locatie</h3>
+                <p>In onze studio in Amsterdam of op locatie.</p>
+            </div>
+            
+            <div class="info-section">
+                <h3>Benodigdheden</h3>
+                <p>Een laptop met je favoriete DAW (Digital Audio Workstation) software. Koptelefoon wordt aangeraden.</p>
             </div>
             
             <div class="info-section">
                 <h3>Kosten</h3>
                 <div class="pricing-table">
                     <div class="price-row">
-                        <span>1-10 personen</span>
-                        <span>€500</span>
+                        <span>1-6 deelnemers</span>
+                        <span>€70 per persoon</span>
                     </div>
                     <div class="price-row">
-                        <span>11-15 personen</span>
-                        <span>€600</span>
+                        <span>7-12 deelnemers</span>
+                        <span>€60 per persoon</span>
                     </div>
                     <div class="price-row">
-                        <span>16 of meer personen</span>
-                        <span>Op aanvraag</span>
+                        <span>13+ deelnemers</span>
+                        <span>€50 per persoon</span>
                     </div>
                 </div>
             </div>
             
             <div class="info-section">
-                <h3>Reiskosten (retour vanuit Utrecht)</h3>
+                <h3>Reiskosten (retour vanuit Amsterdam)</h3>
                 <div class="pricing-table">
                     <div class="price-row">
                         <span>10-100 km</span>
@@ -421,11 +527,10 @@
         </div>
         
         <div class="course-image">
-            <!-- Als je de originele afbeelding wilt gebruiken: -->
-            <img src="images/speechschrijven.jpg" alt="Speech Schrijven">
+            <!-- Als er een afbeelding beschikbaar is, gebruik dan deze code: -->
+            <img src="images/eleccomp.jpg" alt="Electronic Composition"> 
             
-            <!-- Als je de afbeelding niet hebt, gebruik je deze placeholder in plaats van de img-tag: -->
-            <!-- <div class="placeholder">🎤</div> -->
+
         </div>
     </div>
     

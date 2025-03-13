@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alle Cursussen - Muziek & Schrijf Cursussen</title>
+    <title>Muziek Cursussen - Muziek & Schrijf Cursussen</title>
     <style>
         /* Reset en basis stijlen */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -102,8 +102,6 @@
         /* Cursus grid */
         .course-section {
             padding: 50px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
         }
         
         .course-grid {
@@ -119,9 +117,6 @@
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
         }
         
         .course-card:hover {
@@ -130,7 +125,7 @@
         }
         
         .course-image {
-            height: 160px;
+            height: 180px;
             background: linear-gradient(45deg, rgba(212, 90, 42, 0.2), rgba(255, 228, 196, 0.5));
             display: flex;
             align-items: center;
@@ -141,9 +136,6 @@
         
         .course-content {
             padding: 25px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
         }
         
         .course-content h3 {
@@ -156,7 +148,6 @@
             color: #666;
             margin-bottom: 20px;
             font-size: 16px;
-            flex-grow: 1;
         }
         
         .course-btn {
@@ -169,8 +160,6 @@
             display: inline-block;
             box-shadow: 0 4px 12px rgba(212, 90, 42, 0.2);
             transition: all 0.3s ease;
-            align-self: flex-start;
-            margin-top: auto;
         }
         
         .course-btn:hover {
@@ -179,33 +168,92 @@
             box-shadow: 0 6px 15px rgba(212, 90, 42, 0.25);
         }
         
-        /* Filter tabs */
-        .filter-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+        /* Docent sectie */
+        .teacher-section {
+            padding: 60px 5%;
+            background: linear-gradient(135deg, #f8f8f8 0%, #fff5e6 100%);
+            margin-top: 50px;
+        }
+        
+        .teacher-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
             margin-bottom: 40px;
-            flex-wrap: wrap;
+            color: #333;
         }
         
-        .filter-tab {
-            padding: 10px 25px;
-            background: #f8f8f8;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .teacher-profile {
+            display: flex;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: flex-start;
+        }
+        
+        .teacher-image {
+            flex: 0 0 280px;
+            height: 320px;
+            background: linear-gradient(45deg, rgba(212, 90, 42, 0.1), rgba(255, 228, 196, 0.4));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: rgba(212, 90, 42, 0.5);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .teacher-info {
+            flex: 1;
+        }
+        
+        .teacher-info h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .teacher-info h4 {
+            font-size: 18px;
+            color: #d45a2a;
+            margin-bottom: 20px;
             font-weight: 500;
+        }
+        
+        .teacher-bio {
             color: #555;
-            border: none;
+            font-size: 16px;
+            line-height: 1.7;
         }
         
-        .filter-tab.active {
-            background: #d45a2a;
-            color: white;
+        .teacher-highlights {
+            margin-top: 25px;
         }
         
-        .filter-tab:hover:not(.active) {
-            background: #e8e8e8;
+        .teacher-highlights h5 {
+            font-size: 17px;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        
+        .highlights-list {
+            list-style-type: none;
+        }
+        
+        .highlights-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .highlights-list li:before {
+            content: '•';
+            color: #d45a2a;
+            font-size: 20px;
+            position: absolute;
+            left: 5px;
+            top: -2px;
         }
         
         /* Footer styling */
@@ -224,8 +272,13 @@
         
         /* Responsiviteit */
         @media (max-width: 900px) {
-            .course-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .teacher-profile {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .teacher-image {
+                margin-bottom: 30px;
             }
         }
         
@@ -250,39 +303,24 @@
         <div class="logo"><a href="index.html">Muziek & Schrijf Cursussen</a></div>
         <nav>
             <a href="index.html">Home</a>
-            <a href="muziekcursussen.html">Muziek</a>
+            <a href="#" class="active">Muziek</a>
             <a href="schrijfcurssusen.html">Schrijven</a>
             <a href="overons.html">Over ons</a>
         </nav>
     </header>
     
     <section class="page-title">
-        <h1>Alle Cursussen</h1>
-        <p>Boek een cursus voor je bedrijfsuitje, teambuilding, vrijgezellenfeest of gewoon een gezellige dag</p>
+        <h1>Muziek Cursussen</h1>
+        <p>Ontdek onze diverse muziekcursussen voor alle niveaus. Van compositie tot muziekgeschiedenis, laat je inspireren en ontwikkel je muzikale talenten.</p>
     </section>
     
     <section class="course-section">
-        <div class="filter-tabs">
-            <button class="filter-tab active">Alle cursussen</button>
-            <button class="filter-tab">Muziek</button>
-            <button class="filter-tab">Schrijven</button>
-        </div>
-        
         <div class="course-grid">
-            <div class="course-card">
-                <div class="course-image">✍️</div>
-                <div class="course-content">
-                    <h3>Schrijf een kort verhaal</h3>
-                    <p>Ontwikkel je creativiteit en leer hoe je een pakkend kort verhaal schrijft.</p>
-                    <a href="kortverhaalinfo.html" class="course-btn">Meer info</a>
-                </div>
-            </div>
-            
             <div class="course-card">
                 <div class="course-image">🎵</div>
                 <div class="course-content">
                     <h3>Maak een lied</h3>
-                    <p>Leer hoe je een lied componeert en tekst schrijft die raakt.</p>
+                    <p>Leer hoe je een lied componeert en tekst schrijft die raakt. Ideaal voor beginners en gevorderden die hun compositievaardigheden willen verbeteren.</p>
                     <a href="maakeenlied.html" class="course-btn">Meer info</a>
                 </div>
             </div>
@@ -291,71 +329,52 @@
                 <div class="course-image">🎸</div>
                 <div class="course-content">
                     <h3>Leer over de muziekgeschiedenis</h3>
-                    <p>Verdiep je in de evolutie van muziek en ontdek de invloed ervan door de eeuwen heen.</p>
+                    <p>Verdiep je in de evolutie van muziek en ontdek de invloed ervan door de eeuwen heen. Een fascinerende reis door verschillende tijdperken en stromingen.</p>
                     <a href="muziekgesinfo.html" class="course-btn">Meer info</a>
                 </div>
             </div>
             
             <div class="course-card">
-                <div class="course-image">📝</div>
-                <div class="course-content">
-                    <h3>Speech schrijven</h3>
-                    <p>Leer hoe je een inspirerende en overtuigende speech schrijft.</p>
-                    <a href="speechinfo.html" class="course-btn">Meer info</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <div class="course-image">💌</div>
-                <div class="course-content">
-                    <h3>Liefdesbrief schrijven</h3>
-                    <p>Ontdek de kracht van woorden met associatief schrijven en leer een onvergetelijke liefdesbrief te schrijven.</p>
-                    <a href="liefdesbrief.html" class="course-btn">Meer info</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <div class="course-image">🔥</div>
-                <div class="course-content">
-                    <h3>Erotisch verhaal schrijven</h3>
-                    <p>Ontdek hoe je met taal spanning opbouwt en een meeslepend erotisch verhaal schrijft.</p>
-                    <a href="erotischverhaal.html" class="course-btn">Meer info</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <div class="course-image">🏢</div>
-                <div class="course-content">
-                    <h3>Bedrijfsmythe schrijven</h3>
-                    <p>Creëer een krachtige narratief voor je bedrijf of merk.</p>
-                    <a href="bedrijfsmythe.html" class="course-btn">Meer info</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <div class="course-image">🌊</div>
-                <div class="course-content">
-                    <h3>Associatief schrijven</h3>
-                    <p>Laat de woorden stromen en schrijf je vrij in deze creatieve schrijfworkshop.</p>
-                    <a href="associatiefschrijven.html" class="course-btn">Meer info</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <div class="course-image">🎛️</div>
+                <div class="course-image">🎹</div>
                 <div class="course-content">
                     <h3>Elektronische muziekcompositie</h3>
                     <p>Verken de wereld van elektronische muziek en leer hoe je moderne composities maakt met digitale tools. Gegeven door onze expert in elektronische muziek.</p>
-                    <a href="elektronischemuziek.html" class="course-btn">Meer info</a>
+                    <a href="#" class="course-btn">Meer info</a>
                 </div>
             </div>
-
+            
             <div class="course-card">
-                <div class="course-image">🎶</div>
+                <div class="course-image">🎧</div>
                 <div class="course-content">
                     <h3>Muzikale improvisatie</h3>
                     <p>Ontwikkel je improvisatievaardigheden en leer hoe je spontaan muziek kunt creëren. Een praktische cursus voor muzikanten van alle niveaus.</p>
-                    <a href="improvisatie.html" class="course-btn">Meer info</a>
+                    <a href="#" class="course-btn">Meer info</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="teacher-section">
+        <h2>Onze Muziekdocent</h2>
+        <div class="teacher-profile">
+            <div class="teacher-image">🎼</div>
+            <div class="teacher-info">
+                <h3>Brant Peije Teunis</h3>
+                <h4>Componist & Muziekdocent</h4>
+                <div class="teacher-bio">
+                    <p>Brant Peije Teunis is een veelzijdige componist en muzikant uit Amsterdam. Met een Bachelor of Music van de HKU Muziek en Technologie, specialisatie Composition for Electronic Music, brengt hij een combinatie van klassieke opleiding en innovatieve technieken naar onze cursussen.</p>
+                    <p>Als leider van de dynamische Brant Peije Band, waar hij werkt met een wisselende groep muzikanten, brengt hij een unieke energie en experimenteerdrift mee naar zijn lessen. Zijn werk omvat composities voor dans, film, koor en historische instrumenten, wat hem een brede muzikale basis geeft om van te onderwijzen.</p>
+                    <p>Lees meer over Brant op zijn <a href="https://brantpeije.nl" target="_blank">website</a>.</p>
+                    <div class="teacher-highlights">
+                        <h5>Carrière hoogtepunten:</h5>
+                        <ul class="highlights-list">
+                            <li>Documentair Componeren - Carillon Project (2024-heden)</li>
+                            <li>Compositie voor NEON Koor met orgel en saxofoon (2024)</li>
+                            <li>Soundtrack voor KIRAC Episode 24 "Under a Sinking Sun" (2023)</li>
+                            <li>Winnaar publieksprijs Mittelfest met "Nymphs" (2022)</li>
+                            <li>Curator muziekprogramma Riekerhaven, Amsterdam (2019-2023)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -364,28 +383,5 @@
     <footer>
         <p>&copy; 2025 Muziek & Schrijf Cursussen | Alle rechten voorbehouden</p>
     </footer>
-    
-    <script>
-        // Dit script zou de filtering activeren, maar is nu alleen voor de visuele weergave
-        document.querySelectorAll('.filter-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelector('.filter-tab.active').classList.remove('active');
-                this.classList.add('active');
-
-                let filter = this.textContent.trim().toLowerCase();
-                document.querySelectorAll('.course-card').forEach(card => {
-                    let category = card.querySelector('.course-image').textContent.trim();
-
-                    if (filter === "alle cursussen" || 
-                       (filter === "muziek" && ["🎵", "🎸", "🎛️", "🎶"].includes(category)) || 
-                       (filter === "schrijven" && ["✍️", "📝", "💌", "🔥", "🏢", "🌊"].includes(category))) {
-                        card.style.display = "flex";
-                    } else {
-                        card.style.display = "none";
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>

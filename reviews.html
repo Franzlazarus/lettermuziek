@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Muziek & Schrijf Cursussen</title>
+    <style>
+        /* Reset en basis stijlen */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        /* Header styling */
+        header { 
+            background: linear-gradient(to right, #f8f8f8, #fff5e6);
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo { 
+            font-size: 26px;
+            font-weight: bold;
+            color: #d45a2a;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .logo:hover {
+            transform: scale(1.02);
+        }
+        
+        nav { 
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a { 
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 17px;
+            position: relative;
+            padding: 5px 2px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #d45a2a;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #d45a2a;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Pagina titel */
+        .page-title {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(135deg, #fffae6 0%, #fff5e6 100%);
+        }
+        
+        .page-title h1 {
+            font-size: 2.8rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .page-title p {
+            font-size: 18px;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Reviews sectie */
+        .reviews-section {
+            padding: 50px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .reviews-header h2 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .reviews-header p {
+            color: #666;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .review-card {
+            background: linear-gradient(to bottom, #fffaf0, #fff);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .review-stars {
+            margin-bottom: 15px;
+            color: #d45a2a;
+            font-size: 20px;
+        }
+        
+        .review-content {
+            flex-grow: 1;
+            font-style: italic;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .review-card::after {
+            content: '"';
+            font-size: 60px;
+            color: rgba(212, 90, 42, 0.1);
+            position: absolute;
+            bottom: 20px;
+            right: 25px;
+            font-family: Georgia, serif;
+        }
+        
+        .teacher-name {
+            color: #d45a2a;
+            font-weight: 600;
+            margin-top: auto;
+        }
+        
+        /* CTA sectie */
+        .cta-section {
+            background: linear-gradient(135deg, #fffae6 0%, #fff5e6 100%);
+            padding: 80px 5%;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-btn {
+            background: #d45a2a;
+            color: white;
+            padding: 13px 32px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(212, 90, 42, 0.2);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        .cta-btn:hover {
+            background: #c14e24;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(212, 90, 42, 0.25);
+        }
+        
+        /* Footer styling */
+        footer { 
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(to right, #f8f8f8, #fff5e6);
+            border-top: 1px solid #eee;
+            margin-top: 50px;
+        }
+        
+        footer p {
+            color: #666;
+            font-size: 15px;
+        }
+        
+        /* Responsiviteit */
+        @media (max-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-title h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html">Muziek & Schrijf Cursussen</a></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="muziekcursussen.html">Muziek</a>
+            <a href="schrijfcurssusen.html">Schrijven</a>
+            <a href="overons.html">Over ons</a>
+        </nav>
+    </header>
+    
+    <section class="page-title">
+        <h1>Wat onze cursisten zeggen</h1>
+        <p>Ontdek de ervaringen van deelnemers aan onze cursussen en workshops</p>
+    </section>
+    
+    <section class="reviews-section">
+        <div class="reviews-header">
+            <h2>Reviews over Mette</h2>
+            <p>Lees hier wat onze cursisten vonden van de schrijfworkshops gegeven door onze docent Mette</p>
+        </div>
+        
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-content">
+                    Echt een hele leerzame, maar ook grappige workshop! Ik heb denk ik nog nooit in mijn leven een liefdesbrief geschreven… tot vandaag! En het hoefde helemaal niet zoetsappig te zijn. De docente is ontzettend aardig en heeft kennis van zaken. Ze wist vooral veel te vertellen over Russische literatuur. Kortom: echt een aanrader.
+                </div>
+                <div class="teacher-name">Workshop: Liefdesbrief schrijven</div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-stars">★★★★☆</div>
+                <div class="review-content">
+                    Het was een waardevolle middag. In het begin kwam ik een beetje moeilijk op gang met mijn verhaal, maar de docent heeft me toen heel goed geholpen om mijn oordeel los te laten. Het enige minpunt was de tijd: van mij had het wel wat langer mogen duren, want ik kreeg in de tweede helft van de cursus echt de smaak te pakken. Ik zou de docente zeker aanraden om ook een doorlopende cursus te gaan geven.
+                </div>
+                <div class="teacher-name">Workshop: Kort verhaal schrijven</div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-content">
+                    Wat een avond! Ik heb heel veel over mijn vriendinnen en mezelf geleerd. Een emotionele rollercoaster, maar het was het zeker waard!
+                </div>
+                <div class="teacher-name">Workshop: Associatief schrijven</div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <div class="review-content">
+                    Een lief mens en een heldere opdracht. 10/10
+                </div>
+                <div class="teacher-name">Workshop: Erotisch verhaal schrijven</div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-stars">★★★★☆</div>
+                <div class="review-content">
+                    Leerzame middag. Ze had ook leuk briefpapier meegenomen, waardoor het echt een creatief project werd.
+                </div>
+                <div class="teacher-name">Workshop: Liefdesbrief schrijven</div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-stars">★★★★☆</div>
+                <div class="review-content">
+                    Leuk, origineel team-uitje. We hebben elkaar op een heel nieuwe manier leren kennen.
+                </div>
+                <div class="teacher-name">Workshop: Bedrijfsmythe schrijven</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <h2>Ervaar het zelf</h2>
+        <p>Wil je ook deelnemen aan onze inspirerende cursussen? Bekijk ons volledige aanbod en boek vandaag nog je plek.</p>
+        <a href="cursussen.html" class="cta-btn">Bekijk alle cursussen</a>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Muziek & Schrijf Cursussen | Alle rechten voorbehouden</p>
+    </footer>
+</body>
+</html>
