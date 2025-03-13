@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inschrijven</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .intro {
+            margin-bottom: 30px;
+        }
+        .form-container {
+            height: 800px;
+            width: 100%;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 600px) {
+            .form-container {
+                height: 1000px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="intro">
+        <h2>Schrijf je in voor de cursus</h2>
+        <p>Vul onderstaand formulier in om je in te schrijven voor een van onze cursussen.</p>
+    </div>
+    
+    <div class="form-container">
+        <!-- Google Form embed -->
+        <iframe src="https://forms.gle/YWinakgVa5vfTX3w9?embedded=true" 
+                frameborder="0" marginheight="0" marginwidth="0">
+            Laden...
+        </iframe>
+    </div>
+
+    <script>
+        // No JavaScript needed as Google Forms handles all the form functionality
+    </script>
+</body>
+</html>
