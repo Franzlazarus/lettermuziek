@@ -1,0 +1,245 @@
+<style>
+/* Reset en basis stijlen */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+/* Header styling */
+header { 
+    background: linear-gradient(to right, #f8f8f8, #fff5e6);
+    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo { 
+    font-size: 26px;
+    font-weight: bold;
+    color: #d45a2a;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.02);
+}
+
+nav { 
+    display: flex;
+    gap: 30px;
+}
+
+nav a { 
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    font-size: 17px;
+    position: relative;
+    padding: 5px 2px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #d45a2a;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #d45a2a;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Banner styling */
+.banner { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 70px 8%;
+    background: linear-gradient(135deg, #fffae6 0%, #fff5e6 100%);
+    min-height: 500px;
+}
+
+.banner-text { 
+    max-width: 50%;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.banner h1 { 
+    color: #333;
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.banner p { 
+    font-size: 19px;
+    margin-bottom: 30px;
+    color: #555;
+    max-width: 90%;
+}
+
+.cta-btn { 
+    background: #d45a2a;
+    color: white;
+    padding: 13px 32px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(212, 90, 42, 0.2);
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.cta-btn:hover { 
+    background: #c14e24;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(212, 90, 42, 0.25);
+}
+
+.banner-image {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-image .placeholder {
+    width: 400px;
+    height: 320px;
+    background: linear-gradient(45deg, rgba(212, 90, 42, 0.1) 0%, rgba(255, 228, 196, 0.5) 100%);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-image .placeholder::before {
+    content: '🎵 ✍️';
+    font-size: 72px;
+    opacity: 0.4;
+}
+
+/* Features section */
+.features {
+    padding: 80px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
+
+.feature {
+    flex: 1;
+    max-width: 400px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 25px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    transition: all 0.4s ease;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #d45a2a;
+}
+
+.feature h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.feature p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Footer styling */
+footer { 
+    text-align: center;
+    padding: 40px 0;
+    background: linear-gradient(to right, #f8f8f8, #fff5e6);
+    border-top: 1px solid #eee;
+    margin-top: 50px;
+}
+
+footer p {
+    color: #666;
+    font-size: 15px;
+}
+
+/* Responsiviteit */
+@media (max-width: 900px) {
+    .banner {
+        flex-direction: column;
+        padding: 50px 5%;
+    }
+    
+    .banner-text {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .banner p {
+        max-width: 100%;
+    }
+    
+    .features {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .banner h1 {
+        font-size: 2.5rem;
+    }
+}
+</style>

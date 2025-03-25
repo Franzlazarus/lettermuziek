@@ -180,35 +180,6 @@
             box-shadow: 0 6px 15px rgba(212, 90, 42, 0.25);
         }
         
-        /* Filter tabs */
-        .filter-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .filter-tab {
-            padding: 10px 25px;
-            background: #f8f8f8;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            color: #555;
-            border: none;
-        }
-        
-        .filter-tab.active {
-            background: #d45a2a;
-            color: white;
-        }
-        
-        .filter-tab:hover:not(.active) {
-            background: #e8e8e8;
-        }
-        
         /* Footer styling */
         footer { 
             text-align: center;
@@ -251,112 +222,42 @@
         <div class="logo"><a href="index.html">Muziek & Schrijf Cursussen</a></div>
         <nav>
             <a href="index.html">Home</a>
-            <a href="muziekcursussen.html">Muziek</a>
-            <a href="schrijfcurssusen.html">Schrijven</a>
+            <a href="inschrijven.html">Schrijf je in</a>
             <a href="overons.html">Over ons</a>
         </nav>
     </header>
     
     <section class="page-title">
         <h1>Alle Cursussen</h1>
-        <p>Boek een cursus voor je bedrijfsuitje, teambuilding, vrijgezellenfeest of gewoon een gezellige dag</p>
+        <p>Boek een cursus voor je bedrijfsuitje, teambuilding, vrijgezellenfeest of gewoon een gezellige dag. Ontdek onze diverse creatieve workshops voor teams van alle soorten en maten.</p>
     </section>
     
     <section class="course-section">
-        <div class="filter-tabs">
-            <button class="filter-tab active">Alle cursussen</button>
-            <button class="filter-tab">Muziek</button>
-            <button class="filter-tab">Schrijven</button>
-        </div>
-        
         <div class="course-grid">
             <div class="course-card">
-                <div class="course-image">✍️</div>
+                <div class="course-image">🎭</div>
                 <div class="course-content">
-                    <h3>Schrijf een kort verhaal</h3>
-                    <p>Ontwikkel je creativiteit en leer hoe je een pakkend kort verhaal schrijft.</p>
-                    <a href="kortverhaalinfo.html" class="course-btn">Meer info</a>
+                    <h3>Theater Teambuilding</h3>
+                    <p>Ontdek hoe theater de samenwerking binnen je team versterkt! Creëer samen een voorstelling geïnspireerd door de grote klassiekers.</p>
+                    <a href="theaterteambuilding.html" class="course-btn">Meer info</a>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-image">👑</div>
+                <div class="course-content">
+                    <h3>Het Grote Pek-en-Veren Spel</h3>
+                    <p>Stap terug in de middeleeuwen! Een spannend rollenspel waarin teams moeten samenwerken om de moordenaar te vinden en de kroonprinses te beschermen.</p>
+                    <a href="pekenveren.html" class="course-btn">Meer info</a>
                 </div>
             </div>
             
             <div class="course-card">
                 <div class="course-image">🎵</div>
                 <div class="course-content">
-                    <h3>Maak een lied</h3>
-                    <p>Leer hoe je een lied componeert en tekst schrijft die raakt.</p>
-                    <a href="maakeenlied.html" class="course-btn">Meer info</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <div class="course-image">🎸</div>
-                <div class="course-content">
-                    <h3>Leer over de muziekgeschiedenis</h3>
-                    <p>Verdiep je in de evolutie van muziek en ontdek de invloed ervan door de eeuwen heen.</p>
+                    <h3>Reis door de muziekgeschiedenis</h3>
+                    <p>Laat je inspireren door de meesters van de muziek, van de oudste Griekse melodieën tot de nieuwste pophits. Een muzikale reis die eindigt in een energieke danssessie!</p>
                     <a href="muziekgesinfo.html" class="course-btn">Meer info</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <div class="course-image">📝</div>
-                <div class="course-content">
-                    <h3>Speech schrijven</h3>
-                    <p>Leer hoe je een inspirerende en overtuigende speech schrijft.</p>
-                    <a href="speechinfo.html" class="course-btn">Meer info</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <div class="course-image">💌</div>
-                <div class="course-content">
-                    <h3>Liefdesbrief schrijven</h3>
-                    <p>Ontdek de kracht van woorden met associatief schrijven en leer een onvergetelijke liefdesbrief te schrijven.</p>
-                    <a href="liefdesbrief.html" class="course-btn">Meer info</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <div class="course-image">🔥</div>
-                <div class="course-content">
-                    <h3>Erotisch verhaal schrijven</h3>
-                    <p>Ontdek hoe je met taal spanning opbouwt en een meeslepend erotisch verhaal schrijft.</p>
-                    <a href="erotischverhaal.html" class="course-btn">Meer info</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <div class="course-image">🏢</div>
-                <div class="course-content">
-                    <h3>Bedrijfsmythe schrijven</h3>
-                    <p>Creëer een krachtige narratief voor je bedrijf of merk.</p>
-                    <a href="bedrijfsmythe.html" class="course-btn">Meer info</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <div class="course-image">🌊</div>
-                <div class="course-content">
-                    <h3>Associatief schrijven</h3>
-                    <p>Laat de woorden stromen en schrijf je vrij in deze creatieve schrijfworkshop.</p>
-                    <a href="associatiefschrijven.html" class="course-btn">Meer info</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <div class="course-image">🎛️</div>
-                <div class="course-content">
-                    <h3>Elektronische muziekcompositie</h3>
-                    <p>Verken de wereld van elektronische muziek en leer hoe je moderne composities maakt met digitale tools. Gegeven door onze expert in elektronische muziek.</p>
-                    <a href="elektronischemuziek.html" class="course-btn">Meer info</a>
-                </div>
-            </div>
-
-            <div class="course-card">
-                <div class="course-image">🎶</div>
-                <div class="course-content">
-                    <h3>Muzikale improvisatie</h3>
-                    <p>Ontwikkel je improvisatievaardigheden en leer hoe je spontaan muziek kunt creëren. Een praktische cursus voor muzikanten van alle niveaus.</p>
-                    <a href="improvisatie.html" class="course-btn">Meer info</a>
                 </div>
             </div>
         </div>
@@ -365,28 +266,5 @@
     <footer>
         <p>&copy; 2025 Muziek & Schrijf Cursussen | Alle rechten voorbehouden</p>
     </footer>
-    
-    <script>
-        // Dit script zou de filtering activeren, maar is nu alleen voor de visuele weergave
-        document.querySelectorAll('.filter-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelector('.filter-tab.active').classList.remove('active');
-                this.classList.add('active');
-
-                let filter = this.textContent.trim().toLowerCase();
-                document.querySelectorAll('.course-card').forEach(card => {
-                    let category = card.querySelector('.course-image').textContent.trim();
-
-                    if (filter === "alle cursussen" || 
-                       (filter === "muziek" && ["🎵", "🎸", "🎛️", "🎶"].includes(category)) || 
-                       (filter === "schrijven" && ["✍️", "📝", "💌", "🔥", "🏢", "🌊"].includes(category))) {
-                        card.style.display = "flex";
-                    } else {
-                        card.style.display = "none";
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
